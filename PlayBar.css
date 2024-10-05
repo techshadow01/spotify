@@ -1,0 +1,80 @@
+#seekbar {
+    background-color: white;
+    width: 99.8%;
+    height: 2px;
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+}
+
+.circle {
+    position: absolute;
+    background-color: red;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: -3px;
+    left: 0%;
+    /* transition: left 0.5s; */
+}
+
+#proBar {
+    position: absolute;
+    background-color: red;
+    top: 0%;
+    width: 0%;
+    height: 2px;
+}
+
+#seekbar:hover {
+    .circle {
+        width: 14px;
+        height: 14px;
+        top: -5px;
+    }
+}
+
+
+.playbar1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99.8%;
+    height: 70px;
+    position: absolute;
+    bottom: 8px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.playbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.playbar span {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.playbar2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.33%
+}
+
+#songInfo {
+    padding-left: 10px;
+}
+
+#songTime {
+    padding-right: 10px;
+}

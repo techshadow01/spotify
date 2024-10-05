@@ -1,0 +1,83 @@
+@import "left1.css";
+
+.library {
+    width: 100%;
+    height: calc(100% - 180px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.library1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
+    height: 40px;
+    /* background-color: blue; */
+}
+
+.library1 img {
+    width: 30px;
+}
+
+.library11 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    font-weight: 400;
+}
+
+.leftlast {
+    display: flex;
+    font-size: smaller;
+    padding: 15px 0px;
+    margin-bottom: 10px;
+
+    /* position: fixed;
+    bottom: 0; */
+}
+
+.leftlast ul {
+    list-style: none;
+    padding-left: 10%;
+}
+
+.songList {
+    height: 60vh;
+    overflow: hidden auto;
+}
+
+.songList ul {
+    padding-left: 0px;
+    cursor: pointer;
+}
+
+.songList ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: small;
+}
+
+.songList ul li div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.songList ul li div div {
+    max-width: 240px;
+}
+
+.songList ul li:hover {
+    background-color: #222222;
+    transition: all 0.25s ease-out;
+}
+
+.songList ul li span:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,118 @@
+.right_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #222222;
+    height: 60px;
+    padding: 0 10px
+}
+
+.right_top img {
+    width: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.rgtnavbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.rgtnavbtn2 {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.right_sec1 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 30px;
+    /* background-color: red; */
+    height: 80px;
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.right_sec2 {
+    /* display: flex;
+    justify-content: left; */
+    height: calc(100vh - 140px);
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+    overflow-y: auto;
+    /* background-color: red; */
+    /* padding: 0 10px; */
+    padding-left: 10px;
+}
+
+.right_sec2 img {
+    height: 180px;
+    width: 180px;
+    border-radius: 10px;
+}
+
+.rightsec2box {
+    /* display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column; */
+    position: relative;
+    display: inline-block;
+    height: 250px;
+    width: 180px;
+    overflow: hidden;
+    padding: 10px;
+    /* gap: 10px; */
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.25s ease-out;
+}
+
+.playbtn {
+    width: 0px;
+    height: 0px;
+}
+
+.rightsec2box:hover {
+    .playbtn {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: rgb(67, 177, 67);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 85px;
+        right: 15px;
+        transition: 0.25s ease-out;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+}
+
+.rightsec2box :nth-child(3) {
+    font-weight: 900;
+}
+
+.rightsec2box:hover {
+    background-color: #1F1F1F;
+}
+
+@media screen and (max-width:480px) {
+
+    .rightsec2box {
+        width: 42vw;
+    }
+
+    .right_sec2 img {
+        width: calc(42vw - 5px);
+    }
+}
