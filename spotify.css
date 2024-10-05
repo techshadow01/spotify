@@ -26,6 +26,13 @@ body {
 .box {
     background-color: #121212;
     border-radius: 5px;
+    border: 1px solid #222222;
+}
+
+.darkbox {
+    background-color: #000000;
+    border-radius: 5px;
+    border: 1px solid #222222;
 }
 
 .left {
@@ -98,10 +105,6 @@ body {
     .playbar {
         padding-right: 20px;
     }
-
-    /* .playbar1 {
-        flex-direction: column;
-    } */
 }
 
 @media screen and (min-width:1000px) {

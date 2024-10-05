@@ -29,6 +29,19 @@
     border-radius: 20px;
 }
 
+#theme-switch {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    right: 20px;
+}
+
 .right_sec1 {
     display: flex;
     align-items: center;
