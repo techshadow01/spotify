@@ -52,7 +52,6 @@ async function getsongs(folder) {
         }
 
         currsongs = songs;
-        // console.log(currsongs)
 
         //songlist
         let songUl = document.querySelector(".songList").getElementsByTagName("ul")[0]
@@ -109,7 +108,6 @@ async function getsongs(folder) {
                     e.getElementsByClassName("music1")[0].getElementsByTagName("img")[0].src = "assets/pause2.svg";
                 }
                 mplay = e.getElementsByClassName("music1")[0].getElementsByTagName("img")[0];
-                // console.log(mplay)
             }
         })
 
@@ -152,7 +150,7 @@ async function Playlists() {
                         </path>
                     </svg>
                 </div>
-                <div><img src="./songs/${folder}/cover.png" alt=""></div>
+                <div><img src="songs/${folder}/cover.png" alt=""></div>
                 <div>${response.title}</div>
                 <div>${response.desc}</div>
             </div>`
