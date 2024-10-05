@@ -29,7 +29,7 @@ function formatTime(seconds) {
 async function getsongs(folder) {
     try {
         currentFolder = folder;
-        let a = await fetch(`http://127.0.0.1:5500/web/cwh/spotify/${folder}`)
+        let a = await fetch(`https://github.com/techshadow01/spotify/${folder}`)
         let response = await a.text();
         let div = document.createElement("div");
         div.innerHTML = response;
@@ -109,7 +109,7 @@ async function Playlists() {
             // console.log(e.href.split("songs/")[1]);
             let folder = e.href.split("songs/")[1];
 
-            let a = await fetch(`http://127.0.0.1:5500/web/cwh/spotify/songs/${folder}/info.json`)
+            let a = await fetch(`https://github.com/techshadow01/spotify/songs/${folder}/info.json`)
             let response = await a.json();
             // console.log(response);
 
