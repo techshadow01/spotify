@@ -34,6 +34,7 @@ function formatTime(seconds) {
 async function getsongs(folder) {
     try {
         currentFolder = folder;
+        console.log(folder)
         let a = await fetch(`${folder}`)
         let response = await a.text();
         let div = document.createElement("div");
@@ -47,7 +48,7 @@ async function getsongs(folder) {
         for (let index = 0; index < as.length; index++) {
             const element = as[index];
             if (element.href.endsWith(".mp3")) {
-                songs.push(element.href.split(`/${folder}`)[1])
+                songs.push(element.href.split(`${folder}`)[1])
             }
         }
 
@@ -71,7 +72,7 @@ async function getsongs(folder) {
         Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
             e.addEventListener("click", element => {
 
-                cname = currentSong.src.split("/")[8].replaceAll("%20", " ");
+                cname = (currentSong.src.split("/")[currentSong.src.split("/").length - 1]).replaceAll("%20", " ");
                 lname = e.getElementsByTagName("div")[0].getElementsByTagName("div")[0].innerHTML;
 
                 if (cname == lname && currentSong.currentTime != 0) {
@@ -158,7 +159,6 @@ async function Playlists() {
             //event for card
             Array.from(document.getElementsByClassName("rightsec2box")).forEach(e => {
                 e.addEventListener("click", async item => {
-
                     await getsongs(`songs/${item.currentTarget.dataset.folder}/`)
 
                     document.querySelector(".left").style.left = 0 + "%"
@@ -256,7 +256,7 @@ async function main() {
     //menu hide (click)
     right_top1.addEventListener("click", e => {
         document.querySelector(".left").style.left = -100 + "%"
-        // document.querySelector(".right").style.filter = `blur(${0}px)`
+        //document.querySelector(".right").style.filter = `blur(${0}px)`
     })
 
     //next
