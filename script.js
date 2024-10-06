@@ -36,7 +36,7 @@ async function getsongs(folder) {
         currentFolder = folder;
         console.log(folder)
         console.log(window.location.href)
-        let a = await fetch(`${window.location.href}${folder}`)
+        let a = await fetch(`${folder}`)
         let response = await a.text();
         let div = document.createElement("div");
         div.innerHTML = response;
@@ -127,7 +127,7 @@ async function getsongs(folder) {
 }
 
 async function Playlists() {
-    let a = await fetch(`${window.location.href}songs/`)
+    let a = await fetch(`songs/`)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
