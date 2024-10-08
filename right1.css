@@ -47,21 +47,15 @@
     align-items: center;
     justify-content: left;
     padding-left: 30px;
-    /* background-color: red; */
     height: 80px;
     font-size: xx-large;
     font-weight: 900;
 }
 
 .right_sec2 {
-    /* display: flex;
-    justify-content: left; */
+    position: relative;
     height: calc(100vh - 140px);
-    /* flex-wrap: wrap; */
-    /* flex-direction: column; */
     overflow-y: auto;
-    /* background-color: red; */
-    /* padding: 0 10px; */
     padding-left: 10px;
 }
 
@@ -72,10 +66,6 @@
 }
 
 .rightsec2box {
-    /* display: flex;
-    align-items: left;
-    justify-content: center;
-    flex-direction: column; */
     position: relative;
     display: inline-block;
     height: 250px;
