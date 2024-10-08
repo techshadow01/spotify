@@ -148,7 +148,7 @@ async function Playlists() {
 
             let folder = e.href.split("songs/")[1];
 
-            let a = await fetch(`/songs/${folder}/info.json`)
+            let a = await fetch(`songs/${folder}/info.json`)
             let response = await a.json();
 
             let card = document.querySelector(".right_sec2");
@@ -162,7 +162,7 @@ async function Playlists() {
                         </path>
                     </svg>
                 </div>
-                <div><img src="/songs/${folder}/cover.png" alt=""></div>
+                <div><img src="songs/${folder}/cover.png" alt=""></div>
                 <div>${response.title}</div>
                 <div>${response.desc}</div>
             </div>`
@@ -171,7 +171,7 @@ async function Playlists() {
             Array.from(document.getElementsByClassName("rightsec2box")).forEach(e => {
                 e.addEventListener("click", async item => {
                     isearch.value = ""
-                    await getsongs(`/songs/${item.currentTarget.dataset.folder}/`, "")
+                    await getsongs(`songs/${item.currentTarget.dataset.folder}/`, "")
 
                     document.querySelector(".left").style.left = 0 + "%"
                 })
@@ -211,7 +211,7 @@ const playMusic = (track) => {
 
 async function main() {
 
-    await getsongs("/songs/song1/", "")
+    await getsongs("songs/song1/", "")
 
     Playlists()
 
