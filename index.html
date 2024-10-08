@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>spotify</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="sign.css">
     <link rel="stylesheet" href="spotify.css">
     <link rel="stylesheet" href="left1.css">
     <link rel="stylesheet" href="left2.css">
@@ -14,16 +15,38 @@
 </head>
 
 <body>
+
+    <!-- Signup -->
+    <div id="msign">
+        <form>
+            <h2>x</h2>
+            <h3>Login Here</h3>
+
+            <label for="username">Username</label>
+            <input type="text" placeholder="Email or Phone" id="username">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password">
+
+            <button id="bsign">Log In</button>
+            <div class="social">
+                <div class="go"><i class="fab fa-google"></i> Google</div>
+                <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+            </div>
+        </form>
+    </div>
+
+    <!-- main -->
     <div class="left">
         <div class="home box">
             <div id="right_top1" class="homebox invert "><img src="assets/previous.svg" alt=""></div>
             <div class="homebox logo1"><img src="assets/logo.svg" alt=""></div>
             <div class="homebox hoo"><img src="assets/home.svg" alt="">Home</div>
             <div id="Search" class="homebox hoo"><img src="assets/search.svg" alt="">
-                <div>Search</div>
+                <input id="isearch" type="text" placeholder="Search" value="">
             </div>
         </div>
-        <div class="library box">
+        <div class=" library box">
             <div class="library1">
                 <div class="library11"> <span><img class="invert" src="assets/library.svg" alt=""></span><span>
                         Your Library</span></div>
@@ -67,7 +90,8 @@
                     <img src="assets/day.svg" alt="">
                 </button>
                 <div>Sign up</div>
-                <div class="rgtnavbtn2">Log in</div>
+                <div id="log" class="rgtnavbtn2">Log in
+                </div>
             </div>
         </div>
 
@@ -94,7 +118,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script src="darkmode.js"></script>
 </body>
 

@@ -31,11 +31,10 @@ function formatTime(seconds) {
 }
 
 //get songs
-async function getsongs(folder) {
+async function getsongs(folder, j) {
+
     try {
         currentFolder = folder;
-        console.log(folder)
-        console.log(window.location.href)
         let a = await fetch(`${folder}`)
         let response = await a.text();
         let div = document.createElement("div");
@@ -43,6 +42,8 @@ async function getsongs(folder) {
 
         // extract anchor tags
         let as = div.getElementsByTagName("a")
+
+        console.log("hello3")
 
 
         let songs = []
@@ -53,6 +54,12 @@ async function getsongs(folder) {
             }
         }
 
+        if (j != "") {
+            songs = songs.filter(song => (song.toLowerCase()).includes(j.toLowerCase()));
+        }
+
+        console.log(songs)
+
         currsongs = songs;
 
         //songlist
@@ -60,16 +67,16 @@ async function getsongs(folder) {
         songUl.innerHTML = "";
         for (const song of songs) {
             songUl.innerHTML = songUl.innerHTML + ` <li>
-                     <div>
-                         <span class="invert"><img src="assets/music.svg" alt=""></span>
-                         <div>${song.replaceAll("%20", " ")}</div>
-                     </div>
-                     <span class="invert music1"><img src="assets/music1.svg" alt=""></span>
-                 </li> `;
+                      <div>
+                          <span class="invert"><img src="assets/music.svg" alt=""></span>
+                          <div>${song.replaceAll("%20", " ")}</div>
+                      </div>
+                      <span class="invert music1"><img src="assets/music1.svg" alt=""></span>
+                  </li> `;
         }
 
 
-        //connect each song in library
+        //click for each song in library
         Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
             e.addEventListener("click", element => {
 
@@ -91,9 +98,10 @@ async function getsongs(folder) {
                 else {
                     csongs = currsongs;
                     cFolder = currentFolder;
-                    // console.log(cFolder)
                     playMusic(e.getElementsByTagName("div")[0].getElementsByTagName("div")[0].innerHTML.trim());
                 }
+
+                console.log("hello")
             })
         })
 
@@ -120,13 +128,14 @@ async function getsongs(folder) {
         }
 
         return songs;
-
-    } catch (error) {
-        console.error("error")
+    }
+    catch (error) {
+        console.log(error);
     }
 }
 
 async function Playlists() {
+
     let a = await fetch(`songs/`)
     let response = await a.text();
     let div = document.createElement("div");
@@ -136,6 +145,7 @@ async function Playlists() {
 
     Array.from(as).forEach(async e => {
         if (e.href.includes("songs/")) {
+
             let folder = e.href.split("songs/")[1];
 
             let a = await fetch(`songs/${folder}/info.json`)
@@ -160,7 +170,8 @@ async function Playlists() {
             //event for card
             Array.from(document.getElementsByClassName("rightsec2box")).forEach(e => {
                 e.addEventListener("click", async item => {
-                    await getsongs(`songs/${item.currentTarget.dataset.folder}/`)
+                    isearch.value = ""
+                    await getsongs(`songs/${item.currentTarget.dataset.folder}/`, "")
 
                     document.querySelector(".left").style.left = 0 + "%"
                 })
@@ -200,7 +211,7 @@ const playMusic = (track) => {
 
 async function main() {
 
-    await getsongs("songs/song1/")
+    await getsongs("songs/song1/", "")
 
     Playlists()
 
@@ -282,6 +293,33 @@ async function main() {
         else {
             playMusic(csongs[index - 1])
         }
+    })
+
+    //search
+    isearch.addEventListener("change", e => {
+        if (e.target.value != "") {
+            getsongs(currentFolder, e.target.value)
+        }
+        else {
+            getsongs(currentFolder, "");
+        }
+        console.log(e.target.value)
+    });
+
+
+    //login
+    log.addEventListener("click", e => {
+        console.log("hello")
+        msign.style.display = "flex";
+    })
+
+    bsign.addEventListener("click", e => {
+        msign.style.display = "none";
+    })
+
+    console.log(document.getElementsByTagName("h2")[0])
+    document.getElementsByTagName("h2")[0].addEventListener("click", e => {
+        msign.style.display = "none"
     })
 }
 
