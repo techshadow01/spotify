@@ -1,4 +1,5 @@
 console.log("hello there")
+app.use(cors())
 
 let currentSong = new Audio();
 
