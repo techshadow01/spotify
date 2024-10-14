@@ -1,5 +1,4 @@
 console.log("hello there")
-app.use(cors())
 
 let currentSong = new Audio();
 
@@ -44,9 +43,6 @@ async function getsongs(folder, j) {
         // extract anchor tags
         let as = div.getElementsByTagName("a")
 
-        console.log("hello3")
-
-
         let songs = []
         for (let index = 0; index < as.length; index++) {
             const element = as[index];
@@ -56,7 +52,9 @@ async function getsongs(folder, j) {
         }
 
         if (j != "") {
-            songs = songs.filter(song => (song.toLowerCase()).includes(j.toLowerCase()));
+            songs = songs.filter(song => {
+                return (song.toLowerCase()).includes(j.toLowerCase())
+            });
         }
 
         console.log(songs)
@@ -75,7 +73,6 @@ async function getsongs(folder, j) {
                       <span class="invert music1"><img src="assets/music1.svg" alt=""></span>
                   </li> `;
         }
-
 
         //click for each song in library
         Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
@@ -172,6 +169,7 @@ async function Playlists() {
             Array.from(document.getElementsByClassName("rightsec2box")).forEach(e => {
                 e.addEventListener("click", async item => {
                     isearch.value = ""
+                    console.log(item.currentTarget.dataset.folder)
                     await getsongs(`songs/${item.currentTarget.dataset.folder}/`, "")
 
                     document.querySelector(".left").style.left = 0 + "%"
@@ -237,7 +235,8 @@ async function main() {
 
     //songtime
     currentSong.addEventListener("timeupdate", () => {
-        songTime.innerHTML = `${formatTime(currentSong.currentTime)} / ${formatTime(currentSong.duration)}`
+        songTime.innerHTML = `${formatTime(currentSong.currentTime)
+            } / ${formatTime(currentSong.duration)}`
         Circle.style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%"
         proBar.style.width = (currentSong.currentTime / currentSong.duration) * 100 + "%"
 

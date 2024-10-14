@@ -92,8 +92,7 @@ body {
 
 @media screen and (max-width:550px) {
 
-    #volntime,
-    #previous {
+    #volntime {
         position: absolute;
         right: 1000px;
     }
