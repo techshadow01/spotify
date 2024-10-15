@@ -35,7 +35,7 @@ async function getsongs(folder, j) {
 
     try {
         currentFolder = folder;
-        let a = await fetch(`./${folder}`)
+        let a = await fetch(`https://github.com/techshadow01/spotify/tree/main/${folder}`)
         let response = await a.text();
         let div = document.createElement("div");
         div.innerHTML = response;
@@ -134,7 +134,7 @@ async function getsongs(folder, j) {
 
 async function Playlists() {
 
-    let a = await fetch(`./songs/`)
+    let a = await fetch(`https://github.com/techshadow01/spotify/tree/main/songs/`)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -146,7 +146,7 @@ async function Playlists() {
 
             let folder = e.href.split("songs/")[1];
 
-            let a = await fetch(`./songs/${folder}/info.json`)
+            let a = await fetch(`https://github.com/techshadow01/spotify/tree/main//songs/${folder}/info.json`)
             let response = await a.json();
 
             let card = document.querySelector(".right_sec2");
