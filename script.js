@@ -37,6 +37,7 @@ async function getsongs(folder, j) {
         currentFolder = folder;
         let a = await fetch(`https://github.com/techshadow01/spotify/tree/main/${folder}`)
         let response = await a.text();
+        console.log(response);
         let div = document.createElement("div");
         div.innerHTML = response;
 
