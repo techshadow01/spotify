@@ -35,9 +35,10 @@ async function getsongs(folder, j) {
 
     try {
         currentFolder = folder;
-        let a = await fetch(`${folder}`)
+        let a = await fetch(`./${folder}`)
         let response = await a.text();
-        console.log(response);
+        var filename = document.getElementById('songs');
+        console.log(filename)
         let div = document.createElement("div");
         div.innerHTML = response;
 
@@ -57,8 +58,6 @@ async function getsongs(folder, j) {
                 return (song.toLowerCase()).includes(j.toLowerCase())
             });
         }
-
-        console.log(songs)
 
         currsongs = songs;
 
@@ -135,7 +134,7 @@ async function getsongs(folder, j) {
 
 async function Playlists() {
 
-    let a = await fetch(`songs/`)
+    let a = await fetch(`./songs/`)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -143,11 +142,11 @@ async function Playlists() {
     let as = div.getElementsByTagName("a");
 
     Array.from(as).forEach(async e => {
-        if (e.href.includes("songs/")) {
+        if (e.href.includes("songs/") && !e.href.includes(".htaccess")) {
 
             let folder = e.href.split("songs/")[1];
 
-            let a = await fetch(`songs/${folder}/info.json`)
+            let a = await fetch(`./songs/${folder}/info.json`)
             let response = await a.json();
 
             let card = document.querySelector(".right_sec2");
